@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* Uses your brand background (#F1EFE7), default text (#111111), and system UI font stack */
+    @apply bg-brand-bg font-jasper text-brand-dark antialiased;
+  }
+}
