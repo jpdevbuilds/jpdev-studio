@@ -1,192 +1,122 @@
 import { Link } from 'react-router-dom';
 import { projectData } from '../data/projects';
+import { useEffect } from 'react';
 
 export default function About() {
-  // Future-proof matching array for active projects
+  useEffect(() => {
+    document.title = "About | JPDEV.STUDIO";
+  }, []);
+
   const activeStatuses = ['IN PRODUCTION', 'In Progress', 'Experimenting', 'Active'];
-  
-  const activeBuilds = projectData.filter((project) => 
-    activeStatuses.includes(project.status)
-  );
+  const activeBuilds = projectData.filter((project) => activeStatuses.includes(project.status));
 
   return (
-    <div className="w-full space-y-24 py-12 md:py-20">
+    <div className="w-full space-y-24 py-12 md:py-20 max-w-5xl mx-auto px-4">
       
-      {/* SECTION 01 & 02: HERO & STORY PLACEMENT */}
+      {/* HERO */}
       <section className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-        
-        {/* Intentional Overlaid Portrait Treatment */}
-        <div className="md:col-span-5">
-          <div className="relative max-w-sm mx-auto md:max-w-none group">
-            <div className="aspect-[4/5] overflow-hidden rounded-3xl border border-[#111111]/5 bg-[#F1EFE7] shadow-sm">
-              <img
-                src="/images/jpdevphoto.png"
-                alt="Jasper Okhipo"
-                className="w-full h-full object-cover filter contrast-[101%]"
-              />
-            </div>
-            
-            {/* Contextual Floating Identity Badge */}
-            <div className="absolute bottom-4 left-4">
-              <div className="bg-white/90 backdrop-blur-md border border-[#111111]/5 rounded-xl px-4 py-2.5 font-mono shadow-sm">
-                <p className="text-xs font-bold text-[#111111] uppercase tracking-wide">
-                  Jasper Okhipo
-                </p>
-                <p className="text-[10px] text-[#111111]/60 font-bold tracking-wider mt-0.5">
-                  Founder · JpDev.STUDIO
-                </p>
-              </div>
-            </div>
+        <div className="md:col-span-5 relative group">
+          <div className="aspect-[4/5] overflow-hidden rounded-3xl border border-[#111111]/5 bg-[#F1EFE7]">
+            <img src="/images/jpdevphoto.png" alt="Jasper Okhipo" className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md border border-[#111111]/5 rounded-xl px-4 py-2.5 shadow-sm font-mono">
+            <p className="text-xs font-bold text-[#111111] uppercase">Jasper Okhipo</p>
+            <p className="text-[10px] text-[#111111]/60 font-bold uppercase mt-0.5">Founder · JPDEV.STUDIO</p>
           </div>
         </div>
 
-        {/* Narrative & Clear Positioning */}
         <div className="md:col-span-7 space-y-6">
-          <div className="space-y-2 font-mono">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2A5D9E] block">
-              // ABOUT ME
-            </span>
-            <h1 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-[#111111]">
-              Building tools that simplify business.
-            </h1>
-          </div>
-
-          <div className="font-sans text-base text-[#111111]/80 space-y-4 leading-relaxed">
-            <p>
-              I build practical software systems for businesses that want more ownership, less operational friction, and fewer recurring platform costs.
-            </p>
-            <p>
-              During my NYSC year, I am using this period as an experimentation runway to design, ship, and document digital products entirely in public.
-            </p>
-            <p>
-              My focus is straightforward: engineering custom tools, clear ordering workflows, and lightweight setups that solve real everyday problems for operations and creators.
-            </p>
-          </div>
-        </div>
-
-      </section>
-
-      <hr className="border-[#111111]/10" />
-
-      {/* SECTION 03: WHAT I BUILD (Approachable Columns) */}
-      <section className="space-y-6">
-        <span className="text-[10px] font-mono font-bold text-[#111111]/40 uppercase tracking-widest block">
-          // CAPABILITIES
-        </span>
-        <h2 className="text-xl font-bold uppercase tracking-tight text-[#111111] font-mono">
-          What I Build
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          
-          <div className="bg-white p-6 rounded-2xl border border-[#111111]/5 space-y-3 font-mono">
-            <h3 className="text-xs font-bold uppercase text-[#2A5D9E]">Commerce Systems</h3>
-            <p className="text-xs text-[#111111]/60 font-sans leading-relaxed">
-              Instant digital catalogs, structured inventory lookups, and lightweight ordering processes that replace messy messages.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl border border-[#111111]/5 space-y-3 font-mono">
-            <h3 className="text-xs font-bold uppercase text-[#2A5D9E]">Automation Tools</h3>
-            <p className="text-xs text-[#111111]/60 font-sans leading-relaxed">
-              Custom price calculators, automated multi-channel lead routing, and connected webhooks that clear out admin work.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl border border-[#111111]/5 space-y-3 font-mono">
-            <h3 className="text-xs font-bold uppercase text-[#2A5D9E]">Learning Platforms</h3>
-            <p className="text-xs text-[#111111]/60 font-sans leading-relaxed">
-              Independent knowledge hubs, user dashboards, and custom progress trackers designed around step-by-step content.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl border border-[#111111]/5 space-y-3 font-mono">
-            <h3 className="text-xs font-bold uppercase text-[#2A5D9E]">Creator Tools</h3>
-            <p className="text-xs text-[#111111]/60 font-sans leading-relaxed">
-              Clean asset generators, distribution engines, and automated media utilities tailored for smooth workflows.
-            </p>
-          </div>
-
+          <h1 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-[#111111]">We build software people actually use.</h1>
+          <p className="text-lg text-[#111111]/80 leading-relaxed">
+            Software should adapt to your business—not force your business to adapt to the software. JPDEV.STUDIO exists to replace operational friction with tools that are simple to adopt, easy to own, and designed around the realities of everyday work.
+          </p>
         </div>
       </section>
 
-      {/* SECTION 04: STUDIO TRAJECTORY TIMELINE */}
-      <section className="space-y-6 bg-white border border-[#111111]/5 rounded-2xl p-8 md:p-12 shadow-sm">
-        <span className="text-[10px] font-mono font-bold text-[#111111]/40 uppercase tracking-widest block">
-          // TRAJECTORY
-        </span>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono text-xs">
-          
-          <div className="space-y-2">
-            <span className="text-sm font-bold text-[#2A5D9E]">2025</span>
-            <h4 className="font-bold uppercase text-[#111111]">Core Fundamentals</h4>
-            <p className="font-sans text-xs text-[#111111]/60 leading-relaxed">
-              Learning modern frontend development, diving into reactive frameworks, and experimenting with basic digital products.
-            </p>
-          </div>
-
-          <div className="space-y-2 border-t md:border-t-0 md:border-l border-[#111111]/10 pt-4 md:pt-0 md:pl-8">
-            <span className="text-sm font-bold text-[#2A5D9E]">2026 (NYSC)</span>
-            <h4 className="font-bold uppercase text-[#111111]">Studio Launch</h4>
-            <p className="font-sans text-xs text-[#111111]/60 leading-relaxed">
-              Launching JPDEV.STUDIO and building software publicly while experimenting with ideas that evolve into standalone tools.
-            </p>
-          </div>
-
-          <div className="space-y-2 border-t md:border-t-0 md:border-l border-[#111111]/10 pt-4 md:pt-0 md:pl-8">
-            <span className="text-sm font-bold text-[#2A5D9E]">Next Stage</span>
-            <h4 className="font-bold uppercase text-[#111111]">Product Studio</h4>
-            <p className="font-sans text-xs text-[#111111]/60 leading-relaxed">
-              Growing into a focused product studio serving independent businesses, online creators, and local operators.
-            </p>
-          </div>
-
+      {/* PHILOSOPHY & PRINCIPLES */}
+      <section className="space-y-12">
+        <div className="space-y-4">
+          <span className="text-[10px] font-mono font-bold text-[#2A5D9E] uppercase tracking-widest">// PHILOSOPHY</span>
+          <p className="text-xl font-sans text-[#111111]/70 leading-relaxed max-w-3xl">
+            JPDEV.STUDIO began as a deliberate effort to design, ship, and refine operational software through continuous real-world experimentation. We don't aim to build the most software—we aim to build the software that businesses continue relying on years after launch.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { title: "Simple", desc: "Software should reduce complexity, not create it. We prioritize tools that get the job done." },
+            { title: "Practical", desc: "We don't build for technology's sake. Every system solves a specific operational bottleneck." },
+            { title: "Built to Last", desc: "We create digital infrastructure with long-term sustainability and scalability in mind." }
+          ].map((p) => (
+            <div key={p.title} className="bg-white p-8 rounded-2xl border border-[#111111]/5">
+              <h3 className="text-sm font-bold uppercase text-[#2A5D9E] mb-3">{p.title}</h3>
+              <p className="text-xs text-[#111111]/60 leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* SECTION 05: CURRENTLY BUILDING LOG */}
-      {activeBuilds.length > 0 && (
-        <section className="space-y-4">
-          <span className="text-[10px] font-mono font-bold text-[#111111]/40 uppercase tracking-widest block">
-            // CURRENT BUILDS
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-            {activeBuilds.map((project) => (
-              <Link 
-                to={`/work/${project.slug}`} 
-                key={project.slug}
-                className="flex items-center justify-between p-4 bg-white border border-[#111111]/5 rounded-xl transition-all duration-300 hover:border-[#2A5D9E]/30 hover:scale-[1.01] hover:shadow-sm"
-              >
-                <div className="space-y-0.5">
-                  <span className="text-[9px] text-[#2A5D9E] font-bold uppercase">// ACTIVE LAB WORK</span>
-                  <p className="text-sm font-bold uppercase text-[#111111]">{project.title}</p>
+      {/* HOW WE WORK */}
+      <section className="space-y-8">
+        <span className="text-[10px] font-mono font-bold text-[#2A5D9E] uppercase tracking-widest">// HOW WE WORK</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono">
+          {[
+            { step: "01", title: "Understand", desc: "We study how your business works before writing a single line of code." },
+            { step: "02", title: "Design", desc: "We remove unnecessary complexity and build around your actual workflow." },
+            { step: "03", title: "Deliver", desc: "We ship software your team can confidently use and continue to own." }
+          ].map((item) => (
+            <div key={item.step} className="space-y-2 border-l-2 border-[#2A5D9E] pl-6">
+              <span className="text-2xl font-bold text-[#2A5D9E]">{item.step}</span>
+              <h4 className="font-bold uppercase text-[#111111]">{item.title}</h4>
+              <p className="text-xs text-[#111111]/60 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* STUDIO MISSION */}
+      <section className="bg-white border border-[#111111]/5 rounded-2xl p-12 space-y-6">
+        <span className="text-[10px] font-mono font-bold text-[#2A5D9E] uppercase tracking-widest">// STUDIO MISSION</span>
+        <p className="text-lg text-[#111111]/80 leading-relaxed max-w-3xl">
+          JPDEV.STUDIO is a laboratory for digital infrastructure. Every client system and every internal product—from <strong>Smart Catalog</strong> to <strong>MindOps</strong> and <strong>RecallHQ</strong>—helps us refine a growing ecosystem of operational software designed to make the working world clearer and more efficient.
+        </p>
+      </section>
+
+      {/* TRAJECTORY & BUILDS */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <section className="space-y-6">
+          <span className="text-[10px] font-mono font-bold text-[#2A5D9E] uppercase tracking-widest">// TRAJECTORY</span>
+          <div className="space-y-8">
+            {[
+              { year: "2025", title: "Core Fundamentals", desc: "Learning modern frontend development and experimenting with digital products." },
+              { year: "2026", title: "Studio Launch", desc: "Launching JPDEV.STUDIO to build and ship operational software in public." },
+              { year: "Next", title: "Product Studio", desc: "Growing into a focused studio serving independent businesses and creators." }
+            ].map((t) => (
+              <div key={t.year} className="flex gap-4">
+                <span className="text-xs font-bold text-[#2A5D9E] font-mono w-12">{t.year}</span>
+                <div>
+                  <h4 className="text-xs font-bold uppercase text-[#111111]">{t.title}</h4>
+                  <p className="text-xs text-[#111111]/60 mt-1">{t.desc}</p>
                 </div>
-                <span className="text-[10px] font-bold text-[#2A5D9E] bg-[#2A5D9E]/5 px-2.5 py-1 rounded">
-                  WIP
-                </span>
-              </Link>
+              </div>
             ))}
           </div>
         </section>
-      )}
 
-      {/* SECTION 06: CLEAN TRUST CTA */}
-      <section className="bg-white border border-[#111111]/10 rounded-2xl p-8 md:p-12 text-center max-w-2xl mx-auto space-y-6 font-mono shadow-sm">
-        <div className="space-y-2">
-          <span className="text-[10px] font-bold text-[#2A5D9E] tracking-widest block uppercase">// HAVE AN IDEA?</span>
-          <h2 className="text-2xl font-bold uppercase tracking-tight text-[#111111]">
-            Let's turn it into software.
-          </h2>
-        </div>
-        <div>
-          <Link 
-            to="/contact" 
-            className="inline-block text-xs font-bold bg-[#111111] text-white px-6 py-3 rounded transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] uppercase tracking-wider hover:bg-[#2A5D9E] hover:shadow-lg"
-          >
-            Start a Project
-          </Link>
-        </div>
-      </section>
-
+        {activeBuilds.length > 0 && (
+          <section className="space-y-6">
+            <span className="text-[10px] font-mono font-bold text-[#2A5D9E] uppercase tracking-widest">// CURRENT BUILDS</span>
+            <div className="grid gap-4">
+              {activeBuilds.map((p) => (
+                <Link to={`/systems/${p.slug}`} key={p.slug} className="flex items-center justify-between p-4 bg-white border border-[#111111]/5 rounded-xl hover:border-[#2A5D9E]/30 transition-all">
+                  <span className="text-sm font-bold uppercase">{p.title}</span>
+                  <span className="text-[10px] font-bold text-[#2A5D9E] bg-[#2A5D9E]/5 px-2 py-1 rounded">WIP</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
     </div>
   );
 }

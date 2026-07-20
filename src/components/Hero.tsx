@@ -25,7 +25,7 @@ export default function Hero() {
           Explore Commerce Systems
         </a>
         <a 
-          href="/contact" 
+          href="/Discovery" 
           className="px-8 py-3.5 bg-white border border-[rgba(17,17,17,0.12)] text-[#111111] text-xs uppercase font-bold tracking-wider rounded-xl hover:bg-white/60 transition-colors w-full sm:w-auto text-center"
         >
           Book a System Consultation

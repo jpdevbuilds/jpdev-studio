@@ -65,7 +65,7 @@ export default function Products() {
               </div>
               
               <a 
-                href="/contact" 
+                href="/Discovery" 
                 className="bg-[#111111] hover:bg-[#2A5D9E] text-white text-[10px] font-bold uppercase tracking-widest py-3 px-5 rounded-xl transition-colors text-center"
               >
                 Inquire About This Build

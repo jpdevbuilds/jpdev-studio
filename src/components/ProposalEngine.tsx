@@ -15,7 +15,7 @@ export default function ProposalEngine() {
   const [validationError, setValidationError] = useState("");
 
   const isEnterprise = budget === "₦1M+";
-  const calculatedCost = isEnterprise ? "Custom Quote" : (PRICING_MATRIX[product]?.[timeline] || "Contact Studio");
+  const calculatedCost = isEnterprise ? "Custom Quote" : (PRICING_MATRIX[product]?.[timeline] || "Discovery Studio");
   const calculatedDelivery = timeline.includes("1-2 Weeks") ? "7–10 Days" : "21 Days";
 
   const message = `Hello JpDev! I just generated a project estimate on your site.\n\nProject Details:\n- Business: ${businessName || 'Not Provided'}\n- Product Needed: ${product}\n- Target Budget: ${budget}\n- Timeline: ${timeline}`;
@@ -64,7 +64,7 @@ export default function ProposalEngine() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24 font-jasper">
+    <section id="Discovery" className="scroll-mt-24 font-jasper">
       {/* Reframed Clean SME Header */}
       <div className="mb-12 border-b border-brand-dark/10 pb-6">
         <span className="text-xs font-bold tracking-widest text-brand-blue uppercase block mb-1">04 // PRICING CALCULATOR</span>

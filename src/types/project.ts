@@ -1,46 +1,72 @@
-// src/types/project.ts
+export interface ProjectFeature {
+  title: string;
+  description?: string;
+}
 
-export type ProjectCategory = 
-  | "Commerce System" 
-  | "Automation Tool" 
-  | "Learning Hub" 
-  | "Creator Tool" 
-  | "Internal Tool"
-  | "Operational System";
+export interface ProjectImpact {
+  label: string;
+  value: string;
+}
 
-export type ProjectStatus = 
-  | "LAUNCHED" 
-  | "IN PRODUCTION" 
-  | "EXPERIMENTING" 
-  | "ARCHIVED";
+export interface ProjectLinks {
+  live?: string;
+  github?: string;
+  demoVideo?: string;
+}
+
+export interface ProjectCTA {
+  label: string;
+  href: string;
+}
 
 export interface Project {
-  // Core Identity
-  id?: string;
+  // Identity
   slug: string;
   title: string;
-  category: ProjectCategory;
-  status: ProjectStatus;
-  description: string;
-  technologies: string[];
+  executiveSummary?: string;
 
-  // Case Study Narrative (The "Business Context")
-  challenge?: string;
-  approach?: string;
-  features?: string[];
-  lessons?: string;
+  // Positioning
+  industry: string;
+  category: string;
+  systemType: string;
 
-  // Media & External Links
-  image?: string;
-  gallery?: string[];
-  github?: string;
-  liveUrl?: string | null;
-  figmaUrl?: string;
-
-  // Studio Metadata
+  // Lifecycle & Meta
+  status: 'Concept' | 'Building' | 'Testing' | 'Launched' | 'Archived';
+  engagementType: 'Client' | 'Internal Product' | 'Studio Experiment';
   featured: boolean;
-  priority: number;
   published: boolean;
+  priority: number;
   year: number;
-  
+
+  // Media
+  coverImage?: string;
+  gallery?: string[];
+
+  // Technical & Strategic Focus
+  stack: string[];
+  focus: string[];
+
+  // Business Narrative
+  problem: string;
+  whyFailed?: string;
+  approach?: string;
+  solution: string;
+  outcome: string;
+
+  // Business Impact
+  impact: ProjectImpact[];
+
+  // Capabilities
+  features: ProjectFeature[];
+
+  // Delivery Metadata
+  role?: string;
+  duration?: string;
+  client?: string;
+
+  // External Resources
+  links?: ProjectLinks;
+
+  // Call-to-Action
+  cta?: ProjectCTA;
 }

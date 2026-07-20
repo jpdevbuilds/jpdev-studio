@@ -1,24 +1,30 @@
 import { Routes, Route } from 'react-router-dom';
+
 import Layout from './components/Layout';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import Contact from './pages/Contact';
-import Work from './pages/Work';
-import ProjectDetail from './pages/ProjectDetail'; // 1. Import the dynamic view
+import Discovery from './pages/Discovery';
+import SystemDetail from './pages/SystemDetail';
+import Systems from './pages/Systems';
+import DiscoverySuccess from './pages/DiscoverySuccess';
+import Process from './components/Process';
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
+
+        <Route path="systems" element={<Systems />} />
+        <Route path="systems/:slug" element={<SystemDetail />} />
+
         <Route path="services" element={<Services />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="work" element={<Work />} />
-        
-        {/* 2. Catch individual project slugs dynamically */}
-        <Route path="work/:slug" element={<ProjectDetail />} />
+        <Route path="about" element={<About />} />
+        <Route path="discovery" element={<Discovery />} />
+        <Route path="discovery/success" element={<DiscoverySuccess />} />
+        <Route element={<Process />} path="/process" />
       </Route>
     </Routes>
   );
